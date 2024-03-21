@@ -1,0 +1,150 @@
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+body{
+    font-family: Roboto;
+    background: #1a191f;
+}
+.container{
+    padding-top: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+.header__title{
+    font-size: 30px;
+    font-weight: 400;
+    color: #fff;
+}
+.header__items{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 20px;
+}
+.header__link{
+    color: #fff;
+    font-size: 20px;
+}
+.header__input-search{
+    padding: 5px;
+    border-radius: 5px;
+    outline: none;
+}
+.movies{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.movie{
+    width: 200px;
+    margin: 20px;
+    position: relative;
+}
+.movie__cover-inner{
+    position: relative;
+    height: 300px;
+}
+.movie__cover{
+    width: 100%;
+    height: 100%;
+}
+.movie__cover_darkened{
+    background-color:black;
+    opacity: 0.1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+.movie__cover_darkened:hover{
+    background-color: gray;
+    cursor: pointer;
+}
+.movie__info{
+    padding: 10px 0px;
+}
+.movie__title{
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 5px;
+}
+.movie__category{
+    font-size: 14px;
+    color: #ffd80e;
+    margin-bottom: 5px;
+}
+.movie__year{
+    font-size: 14px;
+    color: #ffd80e;
+}
+.movie__average{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#1a191f ;
+    color: #fff;
+    font-size: 14px;
+}
+.movie__average_green{
+    border: 1px solid green;
+}
+.movie__average_orange{
+    border: 1px solid orange;
+}
+.movie__average_red{
+    border: 1px solid red;
+}
+.movie__favorite{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+
