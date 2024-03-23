@@ -60,10 +60,11 @@ body{
     align-items: center;
     column-gap: 20px;
 }
-.header__link{
+.header__items li a{
     color: #fff;
     font-size: 20px;
 }
+
 .header__input-search{
     padding: 5px;
     border-radius: 5px;
@@ -72,7 +73,8 @@ body{
 .movies{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    align-items: center;
+    column-gap: 20px;
 }
 .movie{
     width: 200px;
