@@ -14,6 +14,9 @@ const bestMovies = document.querySelector("#link-best");
 const releaseMovies = document.querySelector("#link-release");
 const premieresMovies = document.querySelector("#link-premieres");
 const expectedMovies = document.querySelector("#link-expected");
+const counter = 10;
+const movies = document.querySelector(".movies");
+const favoriteMovies = [];
 
 function getClassByRate(vote){
     if(vote>=7){
@@ -35,22 +38,21 @@ function getClassByRate(vote){
         }, 
      });
      const data =  await result.json();
-     showBestMovies(data);
+     showMovies(data);
     }catch(error){
       console.log("error")
     }
 
   }
-
-  function showBestMovies(data){
+    function showMovies(data){
     const moviesEl = document.querySelector(".movies");
-     
     document.querySelector('.movies').innerHTML = '';
      if(data.items){
-      data.items.forEach((movie) => {
+      const newData = data.items.slice(0, counter);
+      newData.forEach((movie) => {
         const movieEl = document.createElement("div");
-        movieEl.classList.add("movie") ;
-        console.log(movieEl);
+        movieEl.classList.add("movie");
+        movieEl.setAttribute("dataMovieId",`${movie.kinopoiskId}`);
         movieEl.innerHTML=`
         <div class="movie__cover-inner">
           <img src="${movie.posterUrlPreview}" alt="${movie.nameRu}" class="movie__cover">
@@ -61,7 +63,7 @@ function getClassByRate(vote){
           <div class="movie__category">${movie.genres.map((genre)=>`${genre.genre}`)}</div>
           <div class="movie__year">${movie.year}</div>
           <div class="movie__average movie__average_${getClassByRate(movie.ratingKinopoisk)}">${movie.ratingKinopoisk}</div>
-          <img src="img/heart-unLiked.svg" alt="favorite" class="movie__favorite"style="cursor: pointer;">
+          <img src="img/heart-liked.svg" alt="favorite" class="movie__favorite"style="cursor: pointer;">
         </div>`
         moviesEl.appendChild(movieEl);  
        });
@@ -102,3 +104,16 @@ form.addEventListener("submit", (e)=>{
   }
   search.value = "";
 });
+
+movies.addEventListener("click", movieClick);
+
+function movieClick (event){
+  const favoriteButton = event.target.closest(".movie__favorite");
+  if(!favoriteButton)return;
+
+  const movie = favoriteButton.closest(".movie");
+  const id = movie.dataset.dataMovieId;
+  console.log(id);
+  
+
+}
